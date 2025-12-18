@@ -1,0 +1,151 @@
+/* Main container */
+.container {
+  width: 380px;                 /* Bigger on laptop */
+  max-width: 94%;               /* Mobile friendly */
+  min-height: 480px;            /* More height on desktop */
+  margin: 70px auto;            /* Center perfect */
+  background: linear-gradient(135deg, #3b82f6, #a855f7);
+  padding: 40px 28px;
+  border-radius: 22px;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;      /* Vertically center inside */
+  gap: 12px;
+}
+
+/* Title */
+.container h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Input wrapper */
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+/* Input fields */
+input {
+  width: 100%;
+  padding: 14px;
+  padding-right: 45px;          /* Space for eye icon */
+  margin: 12px 0;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Eye icon inside input */
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #444;
+  cursor: pointer;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 15px;
+  background: #1d4ed8;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  margin-top: 14px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+button:hover {
+  background: #1e40af;
+}
+
+/* Links */
+.link {
+  margin-top: 14px;
+  display: block;
+  font-size: 15px;
+  color: #fff;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 480px) {
+  .container {
+    margin: 25px auto;
+    width: 94%;
+    min-height: auto;        /* Smaller height */
+    padding: 28px 18px;
+    border-radius: 18px;
+  }
+
+  input {
+    padding: 13px;
+    font-size: 15px;
+  }
+
+  button {
+    padding: 13px;
+    font-size: 16px;
+  }
+
+  .eye-icon {
+    font-size: 18px;
+    right: 10px;
+  }
+}
+.googleInside {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.btn-spinner {
+  animation: spin 2s linear infinite;
+  font-size: 18px;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+
+
+.otp-footer {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.timer-text {
+  font-size: 14px;
+  color: #555;
+}
+
+.resend-btn {
+  background: transparent;
+  border: none;
+  color: #007bff;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.resend-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
