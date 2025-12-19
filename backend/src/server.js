@@ -7,5 +7,5 @@ const port = process.env.PORT || 5000;
 connectToMongo();
 
 app.listen(port, () => {
-  console.log(`http://localhost:${port}`);
+  console.log(`server running on the port ${port}`);
 });

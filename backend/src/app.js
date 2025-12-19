@@ -15,7 +15,7 @@ app.use(
 );
 app.use(express.json());
 app.get('/',(req,res)=>{
-    res.send("ok")
+    res.send("Backend running..")
 })
 app.use('/user/auth',requestTime, authRouter)
 
