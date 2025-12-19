@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://skillcircles.onrender.com"
+  baseURL: "https://skillcircles-3.onrender.com"
   ,withCredentials:true
 });
 
