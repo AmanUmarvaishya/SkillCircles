@@ -8,7 +8,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3000", // React URL
+    origin: "https://skill-circles.vercel.app", // React URL
     credentials: true,              // cookies / auth allow
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
