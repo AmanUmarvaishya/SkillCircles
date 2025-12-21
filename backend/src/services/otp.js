@@ -5,15 +5,15 @@ import { otpSendEmail } from "../emails/templates/otpSend.email.js";
 import { EMAIL_SUBJECTS } from "../emails/emailSubjects.js";
 
 export const sendOtpToEmail = async ({ email }) => {
-  const user = await User.findOne({ email });
+  try {
+     const user = await User.findOne({ email });
   if (!user) {
     return res
       .status(400)
       .json({ success: false, message: "Enter right email " });
   }
-
+  
   const otp = generateOtp();
-  console.log(otp);
   const otpHash = hashOtp(otp);
   const expiry = new Date(Date.now() + 5 * 60 * 1000);
   user.otp = otpHash;
@@ -26,4 +26,12 @@ export const sendOtpToEmail = async ({ email }) => {
   );
 
   await user.save();
+  } catch (error) {
+     return res.status(401).json({
+      success: false,
+      message: "otp has not send",
+    });
+  }
+ 
+
 };

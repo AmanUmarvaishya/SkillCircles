@@ -20,8 +20,10 @@ export const sendEmail = async (to, subject, message) => {
       html: message,
     });
 
-    console.log("Email sent successfully");
   } catch (error) {
-    console.log("Email error:", error);
+     return res.status(401).json({
+      success: false,
+      message: "Email not send",
+    });
   }
 };
