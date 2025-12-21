@@ -17,10 +17,6 @@ import { passwordResetEmail } from "../../emails/templates/passwordReset.email.j
 import Session from "../../models/session.js";
 dotenv.config();
 
-const generete_Token=(id)=>{
-  return jwt.sign(id, process.env.JWT_SECRET);
-}
-
 export const SignUp = async (req, res) => {
   // Check wheather the user with this email already
   const { name, email, password } = req.body;
@@ -42,9 +38,6 @@ export const SignUp = async (req, res) => {
       password: secPass,
     });
 
-    const token = generete_Token(user.id)
-
-    user.token = token;
     user.isVerified = true;
     await user.save();
     
@@ -55,7 +48,6 @@ export const SignUp = async (req, res) => {
     );
 
     return res.json({
-      token,
       user,
       message: responseMessage.USER_SUCCESSFULL_SIGNUP,
       success: true,
@@ -83,8 +75,20 @@ export const googleLogin = async (req, res) => {
     if (!user) {
       user = await User.create({ name, email, date, picture });
     }
+       try {
+      const existSession = await Session.findOne({ userId: user._id });
+      if (existSession) {
+        await Session.deleteOne({ userId: user._id });
+      }
+
+      await Session.create({ userId: user._id });
+    } catch (error) {
+      return res
+        .status(400)
+        .send({ success: false, message: "session not created" });
+    }
     const { _id } = user;
-    const token = jwt.sign({ _id, email }, process.env.JWT_SECRET);
+    const token = jwt.sign({ _id, email }, process.env.JWT_SECRET, { expiresIn: "7d" });
     await sendEmail(
       email,
       EMAIL_SUBJECTS.GOOGLE_WELCOME,
@@ -110,6 +114,7 @@ export const login = async (req, res) => {
  
   try {
     let user = await User.findOne({ email });
+    console.log(user)
     if (!user) {
       return res
         .status(401)
@@ -143,7 +148,11 @@ export const login = async (req, res) => {
         .send({ success: false, message: "session not created" });
     }
 
-     const token = generete_Token(user.id)
+     const token =jwt.sign(
+  { id: user._id },
+  process.env.JWT_SECRET,
+  { expiresIn: "7d" }
+);
      user.token = token;
      user.isLoggedIn = true;
      await user.save();
@@ -168,7 +177,7 @@ export const login = async (req, res) => {
 
 export const logOut = async (req, res) => {
   try {
-    const userId = req.userId;
+    const userId = req.user;
     await Session.deleteMany({ userId });
     await User.findByIdAndUpdate(userId, { isLoggedIn: false });
     return res

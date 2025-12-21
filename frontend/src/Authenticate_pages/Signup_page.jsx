@@ -40,7 +40,7 @@ export default function Signup() {
 
       if (data.success) {
         handleSuccess(data.message);
-        setTimeout(() => navigate("/login"), 2000);
+       navigate("/login")
       } else {
         handleError(data.message);
       }

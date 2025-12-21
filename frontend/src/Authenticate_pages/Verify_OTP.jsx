@@ -4,7 +4,6 @@ import { FaSpinner } from "react-icons/fa";
 import { handleError, handleSuccess } from "../utils/Toast_PopUp";
 import responseMessage from "../utils/responseMessage";
 import api from "../api/axios";
-import './form.css';
 
 export default function VerifyOtp() {
   const navigate = useNavigate();
@@ -45,9 +44,7 @@ export default function VerifyOtp() {
 
       if (data.success) {
         handleSuccess(data.message);
-        setTimeout(() => {
           navigate("/new-password", { state: { email } });
-        }, 1500);
       } else {
         handleError(data.message);
       }

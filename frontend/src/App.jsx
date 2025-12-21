@@ -7,7 +7,6 @@ import ForgotPass from "./Authenticate_pages/ForgotPass";
 import VerifyOtp from "./Authenticate_pages/Verify_OTP";
 import NewPassword from "./Authenticate_pages/NewPassword";
 import { ToastContainer } from "react-toastify";
-
 function App() {
   const GoogleAuthWrapper = () => {
     return (

@@ -4,41 +4,33 @@ import User from "../models/User.js";
 export const isAuth = async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
-    console.log(authHeader)
-    if (!authHeader || authHeader.startsWith(`Bearer`)) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Access token is missing" });
+
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return res.status(401).json({
+        success: false,
+        message: "Access token missing",
+      });
     }
-    const token = authHeader.split(" ")[1];
 
-   await jwt.verify(token, process.env.JWT_SECRET, async (errorMonitor, decoded) => {
-      if (err) {
-        if (err.name === "TokenExpiredError") {
-          return res
-            .status(400)
-            .json({
-              success: false,
-              message:
-                "Access token has expired,use reference token gnerate again",
-            });
-        }
-        return res
-          .status(400)
-          .json({ success: false, message: "Access token is missing" });
-      }
-      const { id } = decoded;
-      const user = await User.findById(id);
-      if (!user) {
-        return res
-          .status(400)
-          .json({ success: false, message: "User Not found" });
-      }
+    const token = authHeader.split(" ")[1].replace(/"/g, "");
 
-      req.userId = user._id;
-      next();
-    });
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    const user = await User.findById(decoded.id).select("-password");
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    req.user = user;
+    next();
   } catch (error) {
-    return res.status(500).json({ success: false, message: error.message });
+
+    return res.status(401).json({
+      success: false,
+      message: "Invalid or expired token",
+    });
   }
 };

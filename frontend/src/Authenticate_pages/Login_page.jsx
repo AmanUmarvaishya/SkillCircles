@@ -6,6 +6,7 @@ import { handleError, handleSuccess } from "../utils/Toast_PopUp";
 import responseMessage from "../utils/responseMessage";
 import api from "../api/axios";
 
+
 export default function Login_page() {
   const navigate = useNavigate();
 
@@ -30,8 +31,7 @@ export default function Login_page() {
 
     try {
       setLoading(true);
-      console.log(import.meta.env.VITE_API_URL )
-
+      
       const { data } = await api.post(
        "/user/auth/login",
         loginInfo,
@@ -43,7 +43,7 @@ export default function Login_page() {
       if (data.success) {
         handleSuccess(data.message);
         localStorage.setItem("token", data.token);
-        setTimeout(() => navigate("/home"), 1500);
+       navigate("/home")
       } else {
         handleError(data.message);
       }

@@ -4,6 +4,7 @@ import { FaSpinner } from "react-icons/fa";
 import { handleError, handleSuccess } from "../utils/Toast_PopUp";
 import responseMessage from "../utils/responseMessage";
 import api from "../api/axios";
+import "./form.moduler.css"
 
 export default function ForgotPassword() {
   const navigate = useNavigate();

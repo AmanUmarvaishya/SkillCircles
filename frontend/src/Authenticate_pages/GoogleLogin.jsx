@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { handleError, handleSuccess } from "../utils/Toast_PopUp";
 import responseMessage from "../utils/responseMessage";
 import { googleAuth } from "../api/axios";
+import "./form.moduler.css"
 
 function GoogleLogin() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ function GoogleLogin() {
         const { email, name } = result.data.user; //find user email , name
         const token = result.data.token;
         const obj = { email, name, token };        
-        localStorage.setItem("user-info", JSON.stringify(obj));
+        localStorage.setItem("token", JSON.stringify(obj.token));
         if(result){
           handleSuccess(result.data.message)
         }
