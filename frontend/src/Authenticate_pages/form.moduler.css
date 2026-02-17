@@ -1,5 +1,5 @@
 /* Main container */
-.container {
+.Auth-container {
   width: 380px;                 /* Bigger on laptop */
   max-width: 94%;               /* Mobile friendly */
   min-height: 480px;            /* More height on desktop */
@@ -17,7 +17,7 @@
 }
 
 /* Title */
-.container h2 {
+.Auth-container h2 {
   margin-bottom: 25px;
   font-size: 24px;
   font-weight: 700;
@@ -30,15 +30,19 @@
 }
 
 /* Input fields */
-input {
+.Auth-input {
   width: 100%;
   padding: 14px;
-  padding-right: 45px;          /* Space for eye icon */
+  padding-right: 88px;          /* Space for eye icon */
   margin: 12px 0;
   border-radius: 12px;
   border: none;
   font-size: 16px;
   box-sizing: border-box;
+}
+
+.Auth-input:hover {
+  background: #d5d6da;
 }
 
 /* Eye icon inside input */
@@ -53,7 +57,7 @@ input {
 }
 
 /* Buttons */
-button {
+.Auth-button {
   width: 100%;
   padding: 15px;
   background: #1d4ed8;
@@ -66,36 +70,40 @@ button {
   font-weight: 600;
 }
 
-button:hover {
-  background: #1e40af;
+.Auth-button:hover {
+  background: #4648c2;
 }
 
-/* Links */
-.link {
+/* Auth-Auth-links */
+.Auth-link {
   margin-top: 14px;
   display: block;
   font-size: 15px;
   color: #fff;
 }
+.Auth-link:hover {
+  color: #d5d6da;
+}
 
 /* MOBILE VIEW */
 @media (max-width: 480px) {
-  .container {
+  .Auth-container {
     margin: 25px auto;
-    width: 94%;
-    min-height: auto;        /* Smaller height */
+    width: 100%;
+    min-height: 100%;        /* Smaller height */
     padding: 28px 18px;
     border-radius: 18px;
   }
 
-  input {
+  .Auth-input {
     padding: 13px;
     font-size: 15px;
   }
 
-  button {
+  .Auth-button {
     padding: 13px;
     font-size: 16px;
+    width: 265px;
   }
 
   .eye-icon {
@@ -103,7 +111,7 @@ button:hover {
     right: 10px;
   }
 }
-.googleInside {
+.Auth-googleInside {
   margin-top: 20px;
   display: flex;
   justify-content: center;
@@ -119,7 +127,7 @@ button:hover {
   }
 }
 
-button:disabled {
+.Auth-button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
@@ -136,7 +144,7 @@ button:disabled {
   color: #555;
 }
 
-.resend-btn {
+.Auth-resend-btn {
   background: transparent;
   border: none;
   color: #007bff;
@@ -145,7 +153,7 @@ button:disabled {
   padding: 5px;
 }
 
-.resend-btn:disabled {
+.Auth-resend-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }

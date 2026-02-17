@@ -43,20 +43,20 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="container">
+    <div className="Auth-container">
       <h2>Enter Email</h2>
 
       <form onSubmit={handleSendOtp}>
         <label>
           Email
-          <input
+          <input className="Auth-input"
             type="email"
             placeholder="Enter your email"
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
 
-        <button type="submit" disabled={loading}>
+        <button type="submit" className="Auth-button" disabled={loading}>
           {loading ? <FaSpinner className="btn-spinner" /> : "Send OTP"}
         </button>
       </form>

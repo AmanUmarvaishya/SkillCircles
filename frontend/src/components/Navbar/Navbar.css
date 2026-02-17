@@ -1,0 +1,115 @@
+/* =====================
+   GLOBAL NAVBAR
+===================== */
+.navbar {
+  height: 64px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* =====================
+   BRAND / LOGO
+===================== */
+.brand-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* =====================
+   SEARCH BAR
+===================== */
+.search-wrapper {
+  width: 420px;
+}
+
+.search-wrapper input {
+  border-radius: 25px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+/* =====================
+   RIGHT ICONS
+===================== */
+.icon-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #444;
+}
+
+.icon-btn:hover {
+  color: #0d6efd;
+}
+
+/* =====================
+   PROFILE IMAGE
+===================== */
+.profile-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid #e5e5e5;
+}
+
+/* =====================
+   DROPDOWN MENU
+===================== */
+.dropdown-menu {
+  border-radius: 12px;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  font-size: 14px;
+  padding: 10px 16px;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* =====================
+   DESKTOP ONLY
+===================== */
+.desktop-only {
+  display: flex;
+}
+
+/* =====================
+   MOBILE RESPONSIVE
+===================== */
+@media (max-width: 992px) {
+  .search-wrapper {
+    width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .search-wrapper {
+    width: 60%;
+  }
+
+  .navbar {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-wrapper {
+    width: 55%;
+  }
+
+  .search-wrapper input {
+    font-size: 13px;
+  }
+}

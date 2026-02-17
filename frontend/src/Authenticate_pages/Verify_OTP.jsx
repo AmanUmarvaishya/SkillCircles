@@ -83,7 +83,7 @@ export default function VerifyOtp() {
   };
 
   return (
-    <div className="container">
+    <div className="Auth-container">
       <h2>Verify OTP</h2>
 
       <h4>
@@ -96,14 +96,14 @@ export default function VerifyOtp() {
       <form onSubmit={handleVerify}>
         <label>
           Enter 6 digit OTP
-          <input
+          <input className="Auth-input"
             type="number"
             placeholder="Enter 6 digit OTP"
             onChange={(e) => setOtp(e.target.value)}
           />
         </label>
 
-        <button type="submit" disabled={loading}>
+        <button type="submit" className="Auth-button" disabled={loading}>
           {loading ? <FaSpinner className="btn-spinner" /> : "Verify OTP"}
         </button>
       </form>
@@ -116,7 +116,7 @@ export default function VerifyOtp() {
           </p>
         ) : (
           <button
-            className="resend-btn"
+            className="Auth-button"
             onClick={handleResendOtp}
             disabled={resendLoading}
           >

@@ -50,13 +50,13 @@ export default function NewPassword() {
   };
 
   return (
-    <div className="container">
+    <div className="Auth-container">
       <h2>Create New Password</h2>
 
       <form onSubmit={handleReset}>
         <label>
           Password
-          <input
+          <input className="Auth-input"
             type={show ? "text" : "password"}
             placeholder="Enter new password"
             onChange={(e) => setPassword(e.target.value)}
@@ -65,7 +65,7 @@ export default function NewPassword() {
 
         <label>
           Confirm Password
-          <input
+          <input className="Auth-input"
             type={show ? "text" : "password"}
             placeholder="Confirm password"
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -76,7 +76,7 @@ export default function NewPassword() {
           Show Password {show ? <FiEyeOff /> : <FiEye />}
         </span>
 
-        <button type="submit" disabled={loading}>
+        <button type="submit" className="Auth-button" disabled={loading}>
           {loading ? <FaSpinner className="btn-spinner" /> : "Save Password"}
         </button>
       </form>

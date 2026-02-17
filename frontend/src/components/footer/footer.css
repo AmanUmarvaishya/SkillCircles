@@ -1,0 +1,84 @@
+.skill-footer {
+  background: linear-gradient(135deg, #3b82f6, #a855f7);
+  color: #fff;
+  padding: 60px 0 20px;
+}
+
+/* Titles */
+.footer-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.footer-subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Text */
+.footer-text {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  padding-left: 6px;
+}
+
+/* Social Icons */
+.footer-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-socials a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.footer-socials a:hover {
+  background: #fff;
+  color: #3b82f6;
+}
+
+/* Divider */
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.3);
+  margin: 30px 0 15px;
+}
+
+/* Bottom text */
+.footer-bottom {
+  font-size: 13px;
+  opacity: 0.85;
+}

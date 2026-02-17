@@ -12,10 +12,11 @@ function GoogleLogin() {
     try {  
       if (authResult["code"]) {//google server connect and find code
         const result = await googleAuth(authResult["code"]);        
-        const { email, name } = result.data.user; //find user email , name
+        const { email, name ,picture} = result.data.user; //find user email , name
         const token = result.data.token;
-        const obj = { email, name, token };        
+        const obj = { email, name, token,picture };        
         localStorage.setItem("token", JSON.stringify(obj.token));
+         localStorage.setItem("user-info", JSON.stringify(obj));
         if(result){
           handleSuccess(result.data.message)
         }
@@ -33,7 +34,7 @@ function GoogleLogin() {
 
   return (
     <div>
-      <button onClick={googleLogin} className="btn">
+      <button onClick={googleLogin} className="Auth-button">
         Sign in with google 
       </button>
         

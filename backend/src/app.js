@@ -6,6 +6,7 @@ import authRouter from './routes/auth.js'
 import { requestTime } from "./middleware/requestTime.js";// import {DateTime} from 'luxon'
 const app = express();
 import dotenv from "dotenv";
+import CourserRouter from "./routes/course.js";
 dotenv.config();
 app.use(
   cors({
@@ -16,9 +17,12 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use("/uploads", express.static("uploads"));
 app.get('/',(req,res)=>{
     res.send("Backend running..")
 })
 app.use('/user/auth',requestTime, authRouter)
+app.use('/user/courses',requestTime, CourserRouter)
 
 export default app;

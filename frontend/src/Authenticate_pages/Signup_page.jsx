@@ -54,13 +54,13 @@ export default function Signup() {
   };
 
   return (
-    <div className="container">
+    <div className="Auth-container">
       <h2>Signup</h2>
 
       <form onSubmit={handleSignup}>
         <label>
           Name
-          <input
+          <input className="Auth-input"
             type="text"
             name="name"
             placeholder="Enter name"
@@ -70,7 +70,7 @@ export default function Signup() {
 
         <label>
           Email
-          <input
+          <input  className="Auth-input"
             type="email"
             name="email"
             placeholder="Enter email"
@@ -80,7 +80,7 @@ export default function Signup() {
 
         <label>
           Password
-          <input
+          <input  className="Auth-input"
             type="password"
             name="password"
             placeholder="Enter password"
@@ -88,12 +88,12 @@ export default function Signup() {
           />
         </label>
 
-        <button type="submit" disabled={loading}>
+        <button type="submit" className="Auth-button" disabled={loading}>
           {loading ? <FaSpinner className="btn-spinner" /> : "Signup"}
         </button>
       </form>
 
-      <Link className="link" to="/login">
+      <Link className="Auth-link" to="/login">
         Already have an account? Login
       </Link>
     </div>
