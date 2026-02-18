@@ -10,7 +10,9 @@ import { ToastContainer } from "react-toastify";
 import Page_Create_Courses from "./components/courses/Create_courses/Page_Create_Courses";
 import Page_Edit_Courses from "./components/courses/Edit_courses/Page_Edit_Courses";
 import Profile_Page from "./components/User_Profile/Profile_Page";
-import Show_Courses from "./components/All_User/Show_Courses";
+import Show_Course from "./components/Show_Courses/Show_Courses";
+import Animation from "./Animation/Animation.jsx";
+<Animation />
 function App() {
   const GoogleAuthWrapper = () => {
     return (
@@ -23,21 +25,20 @@ function App() {
   };
   return (
     <>
+    <Animation></Animation>
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<GoogleAuthWrapper />} />
           <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/login" element={<GoogleAuthWrapper />} />
           <Route path="/signup" element={<Signup_page />} />
           <Route path="/home" element={<Home />} />
           <Route path="/forgot" element={<ForgotPass />} />
           <Route path="/verify-otp" element={<VerifyOtp />} />
           <Route path="/new-password" element={<NewPassword />} />
-
-
           <Route path="/create-course" element={<Page_Create_Courses />} />
           <Route path="/edit-course" element={<Page_Edit_Courses />} />
-           <Route path="/profile" element={<Profile_Page />} />
-           <Route path="/show_courses/:id" element ={<Show_Courses/>}/>
+            <Route path="/profile" element={<Profile_Page />} />
+            <Route path="/show_courses/:id" element ={<Show_Course/>}/>
         </Routes>
       </BrowserRouter>
       <ToastContainer />

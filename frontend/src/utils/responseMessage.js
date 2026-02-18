@@ -2,6 +2,7 @@ export default{
     USERNAME:"Please Enter UserName",
     EMAIL:"Please Enter Email ",
     PASSWORD:"Please Enter Password",
+    ROLE:"Please select role",
     OTP:"Enter 6 Digit Otp",
     CONFIRMPASSWORD:"Enter Confirm Password",
     SAMEPASSPORD:"Enter Same Password",

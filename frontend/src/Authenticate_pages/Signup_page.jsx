@@ -12,6 +12,7 @@ export default function Signup() {
     name: "",
     email: "",
     password: "",
+    role:""
   });
 
   const [loading, setLoading] = useState(false);
@@ -23,11 +24,12 @@ export default function Signup() {
   const handleSignup = async (e) => {
     e.preventDefault();
 
-    const { name, email, password } = user;
+    const { name, email, password ,role } = user;
 
     if (!name) return handleError(responseMessage.USERNAME);
     if (!email) return handleError(responseMessage.EMAIL);
     if (!password) return handleError(responseMessage.PASSWORD);
+        if (!role) return handleError(responseMessage.ROLE);
 
     try {
       setLoading(true);
@@ -87,6 +89,15 @@ export default function Signup() {
             onChange={handleChange}
           />
         </label>
+
+       
+          Role
+          <select className="Auth-input" name="role" id="" type="text"  placeholder="Select Role" onChange={handleChange}>
+            <option value="student">Select Role</option>
+            <option value="teacher">Teacher</option>
+            <option value="student">Student</option>
+          </select>
+      
 
         <button type="submit" className="Auth-button" disabled={loading}>
           {loading ? <FaSpinner className="btn-spinner" /> : "Signup"}

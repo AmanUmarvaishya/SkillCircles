@@ -21,6 +21,16 @@ export const signupSchema = Joi.object({
     "string.min": "Password must be at least 6 characters",
     "string.max": "Password maximum 20 characters",
   }),
+ role: Joi.string()
+  .valid("student", "teacher")
+  .required()
+  .messages({
+    "string.empty": "Role is required",
+    "any.required": "Role is required",
+    "any.only": "Role must be either student or admin"
+  }),
+
+
 });
 
 export const loginSchema = Joi.object({

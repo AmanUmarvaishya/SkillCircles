@@ -4,10 +4,10 @@ import { type } from "os";
 const courseSchema = new mongoose.Schema(
   {
 
-      createdBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
+      createdBy:{
+        type:mongoose.Schema.Types.ObjectId,
+              ref:"User"
+          },
     title: {
       type: String,
       required: true,

@@ -23,7 +23,6 @@ export default function Navbar() {
       if (data.success) {
         handleSuccess(data.message || "Logout successful");
 
-        // local storage clean
         localStorage.removeItem("token");
 
         navigate("/login");
@@ -38,8 +37,8 @@ export default function Navbar() {
   const user = localStorage.getItem('user-info') 
   const userName= JSON.parse(user)
   return (
-    <div classNameName="navbar">
-  <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <div classNameName="navbar " data-aos="fade-right">
+  <nav className="navbar navbar-expand-lg bg-body-tertiary" >
   <div className="container-fluid">
 
     {/* LEFT : LOGO */}
@@ -81,7 +80,8 @@ export default function Navbar() {
 
        <Link onClick={handleLogOut} >Logout</Link>
 
-        <Link className="nav-link" to="/create-course">Create_Course</Link>        
+         {userName.role == "teacher" && (<Link className="nav-link" to="/create-course">Create_Course</Link>        
+     )} 
 
 
         {/* PROFILE IMAGE */}

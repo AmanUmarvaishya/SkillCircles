@@ -5,9 +5,10 @@ export default function Heroes() {
     <section
       className="d-flex align-items-center"
       style={{ height: "85vh" }}
-    >
-      <div className="container">
-        <div className="row align-items-center">
+    ><div className="container" 
+
+       >
+        <div className="row align-items-center"  data-aos="fade-left"      >
 
           {/* LEFT : TEXT */}
           <div className="col-lg-6 col-md-12 text-center text-lg-start">

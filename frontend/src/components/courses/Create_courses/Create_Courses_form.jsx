@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {  useNavigate } from "react-router-dom";
 
 const CreateCourse = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -44,10 +46,10 @@ const CreateCourse = () => {
           },
         }
       );
-      alert("Course created successfully ✅");
+      alert("Course created successfully ");
+    navigate("/home", { state: { refresh: true } });
     } catch (error) {
-      console.error(error);
-      alert("Something went wrong ❌");
+      alert("Something went wrong ");
     }
   };
 

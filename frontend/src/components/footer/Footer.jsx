@@ -4,7 +4,7 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <footer className="skill-footer">
+    <footer className="skill-footer" data-aos="zoom-in">
       <div className="container">
         <div className="row gy-4">
 

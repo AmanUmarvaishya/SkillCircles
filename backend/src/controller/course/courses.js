@@ -14,7 +14,7 @@ export const create_courses = async (req, res) => {
       });
     }
 
-    const course = await Course.create({
+    const course = new Course({
       title,
       description,
       category,
@@ -24,7 +24,8 @@ export const create_courses = async (req, res) => {
       price: priceType === "Paid" ? price : 0,
        image: req.file.path,
     });
-    // console.log(course)
+
+    
 await course.save()
     res.status(201).json({
       success: true,
@@ -32,7 +33,6 @@ await course.save()
       course,
     });
   } catch (error) {
-    console.error(error);
     res.status(500).json({
       success: false,
       message: "Server error",
@@ -47,7 +47,6 @@ export const get_courses =async(req,res)=>{
     message : "all Courses available",
     All_courses
      })
-   console.log("hii")
 }
 
 export const show_courses=async(req,res)=>{
@@ -56,5 +55,4 @@ const course = await Course.findById(req.params.id);
    success: true,
    course
 });
-  console.log("kkk")
   }

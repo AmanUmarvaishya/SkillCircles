@@ -14,7 +14,14 @@ const UserSchema = mongoose.Schema(
     },
     password: {
       type: String,
+      required :true
     },
+   role: {
+  type: String,
+  required:true,
+  enum: ["student", "teacher"],
+  default: "student"
+},
     isVerified: { type: Boolean, default: false },
     isLoggedIn: { type: Boolean, default: false },
     token: { type: String, default: null },

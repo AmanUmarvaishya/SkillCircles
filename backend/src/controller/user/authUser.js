@@ -19,8 +19,7 @@ dotenv.config();
 
 export const SignUp = async (req, res) => {
   // Check wheather the user with this email already
-  const { name, email, password } = req.body;
-  console.log(req.body)
+  const { name, email, password ,role} = req.body;
    try {
     let exist_user = await User.findOne({ email });
     if (exist_user) {
@@ -36,7 +35,10 @@ export const SignUp = async (req, res) => {
       name: name,
       email: email,
       password: secPass,
+      role:role
+
     });
+    console.log(user)
 
     user.isVerified = true;
     await user.save();
@@ -54,8 +56,7 @@ export const SignUp = async (req, res) => {
     });
 
   } catch (error) {
-    console.error(error.message);
-    res.status(500).json({ error: responseMessage.USER_SIGNUP_ERROR });
+    res.status(501).json({ error: responseMessage.USER_SIGNUP_ERROR  });
   }
 };
 
@@ -114,7 +115,6 @@ export const login = async (req, res) => {
  
   try {
     let user = await User.findOne({ email });
-    console.log(user)
     if (!user) {
       return res
         .status(401)
@@ -170,7 +170,6 @@ export const login = async (req, res) => {
       user
     });
   } catch (error) {
-    console.error(error.message);
     return res.status(400).send(responseMessage.USER_LOGIN_ERROR);
   }
 };
@@ -184,7 +183,6 @@ export const logOut = async (req, res) => {
       .status(200)
       .json({ message: "logout successful", success: true });
   } catch (error) {
-    console.error(error.message);
     return res
       .status(400)
       .send({ success: false, message: "internal server error" });
@@ -199,7 +197,6 @@ export const sendOtp = async (req, res) => {
       .status(200)
       .json({ message: "otp send success full", success: true });
   } catch (error) {
-    console.error(error.message);
     res.status(400).json({ message: false });
   }
 };
@@ -265,7 +262,6 @@ export const verifyOtp = async (req, res) => {
     });
 
   } catch (error) {
-    console.error("VERIFY OTP ERROR:", error);
     return res.status(500).json({
       success: false,
       message: "Internal server error",
